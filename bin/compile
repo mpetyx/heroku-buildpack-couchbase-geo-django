@@ -166,6 +166,12 @@ set -e
 
 mkdir -p $(dirname $PROFILE_PATH)
 
+# Create set-aside .geodjango folder and copy compiled files
+mkdir -p .geodjango
+cp -R $CACHE_DIR/geos .geodjango
+cp -R $CACHE_DIR/proj4 .geodjango
+cp -R $CACHE_DIR/gdal .geodjango
+
 set +e
 PYTHON_VERSION=$(cat runtime.txt)
 
