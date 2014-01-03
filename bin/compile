@@ -88,6 +88,10 @@ export LD_LIBRARY_PATH=/app/.heroku/vendor/lib
 # Switch to the repo's context.
 cd $BUILD_DIR
 
+# Installing libcouchbase
+export EXTRA_CPPFLAGS="-I$BUILD_DIR/vendor/libcouchbase/include"
+export EXTRA_LDFLAGS="-L$BUILD_DIR/vendor/libcouchbase/lib -Wl,-rpath,$BUILD_DIR/vendor/libcouchbase/lib"
+
 
 # Install GEOS
 if [ ! -d $CACHE_DIR/gdal ]; then
@@ -305,3 +309,4 @@ bpwatch start anvil_appdir_commit
 bpwatch stop anvil_appdir_commit
 
 bpwatch stop compile
+
