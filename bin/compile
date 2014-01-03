@@ -91,6 +91,9 @@ cd $BUILD_DIR
 # Installing libcouchbase
 export EXTRA_CPPFLAGS="-I$BUILD_DIR/vendor/libcouchbase/include"
 export EXTRA_LDFLAGS="-L$BUILD_DIR/vendor/libcouchbase/lib -Wl,-rpath,$BUILD_DIR/vendor/libcouchbase/lib"
+export CPPFLAGS="-I/app/vendor/libcouchbase/include"
+export LDFLAGS="-L/app/vendor/libcouchbase/include -lcouchbase"
+export LD_LIBRARY_PATH="/app/vendor/libcouchbase/lib:$LD_LIBRARY_PATH"
 
 
 # Install GEOS
